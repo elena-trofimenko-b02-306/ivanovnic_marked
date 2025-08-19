@@ -98,7 +98,7 @@ $$
 \exists \delta>0: \forall x \in \stackrel{o}{U}_{\delta}\left(x^{0}\right) \hookrightarrow f\left(x^{0}\right)<f(x) .
 $$
 </block>
-<block id = 'P13.1.1'>
+<block id = 'PL13.1.1'>
 
 Доказательство. Пусть $x^{0}$ - точка строго безусловного локального минимума функции $f$. Тогда $\exists \delta_{1}>0: \forall x \in \stackrel{o}{U}_{\delta_{1}}\left(x^{0}\right) \cap X \hookrightarrow$ $\hookrightarrow f\left(x^{0}\right)<f(x)$. Поскольку $x^{0} \in \operatorname{int} X$, то $\exists \delta_{2}>0: U_{\delta_{2}}\left(x^{0}\right) \subset X$. Определим $\delta=\min \left\{\delta_{1}, \delta_{2}\right\}$. Тогда $\forall x \in U_{\delta}\left(x^{0}\right) \hookrightarrow f\left(x^{0}\right)<f(x)$. Обратное утверждение очевидно.
 </block>
@@ -110,7 +110,7 @@ $$
 
 в точке $x^{0}$. Если $x^{0}$ - точка безусловного локального экстремума функции $f$, то $\operatorname{grad} f\left(x^{0}\right)=\overline{0}$.
 </block>
-<block id='P13.1.2'>
+<block id='PT13.1.1'>
 Доказательство. Поскольку компоненты вектора grad $f\left(x^{0}\right)=$ $=\overline{0}$ равны частным производным $\frac{\partial f}{\partial x_{i}}\left(x^{0}\right)$, то достаточно доказать, что $\frac{\partial f}{\partial x_{i}}\left(x^{0}\right)=0 \quad \forall i \in\{1, \ldots, n\}$. Зафиксируем произвольное $i \in$ $\in\{1, \ldots, n\}$ и рассмотрим функцию одной переменной $\varphi\left(x_{i}\right)=$ $=f\left(x_{1}^{0}, \ldots, x_{i-1}^{0}, x_{i}, x_{i+1}^{0}, \ldots, x_{n}^{0}\right)$. Поскольку $x^{0}$ - точка локального экстремума функции $f$, то $x_{i}^{0}$ - точка локального экстремума функции $\varphi\left(x_{i}\right)$. В силу теоремы Ферма $\varphi^{\prime}\left(x_{i}^{0}\right)=0$. Следовательно, $\frac{\partial f}{\partial x_{i}}\left(x^{0}\right)=\varphi^{\prime}\left(x_{i}^{0}\right)=0$.
 </block>
 <block id = 'D13.1.3'>
@@ -174,7 +174,7 @@ $$
 \exists \lambda>0: \forall x \in \mathbb{R}^{n} \hookrightarrow k(x) \geq \lambda|x|^{2} .
 $$
 </block>
-<block id = 'P13.1.3'>
+<block id = 'PL13.1.2'>
 Доказательство. Поскольку функция $k(x)=x^{T} M x$ непрерывна, а единичная сфера $S=\left\{x \in \mathbb{R}^{n}:|x|=1\right\}$ ограничена и замкнута, т. е. является компактом, то существует $\min _{x \in S} k(x)=\lambda$. Из положительной определенности квадратичной формы $k(x)$ следует, что $\lambda>0$. Из определения минимума получаем, что $\forall \widetilde{x} \in S \hookrightarrow k(\widetilde{x}) \geq \lambda$.
 
 Если $x=\overline{0}$, то $k(x)=0$, и неравенство $k(x) \geq \lambda|x|^{2}$ выполняется.
@@ -188,7 +188,7 @@ $$
 3) если квадратичная форма $d^{2} f\left(x^{0}\right)$ знаконеопределена, то $x^{0}$ не является точкой безусловного локального экстремума функции $f$;
 4) если квадратичная форма $d^{2} f\left(x^{0}\right)$ не является ни положительно, ни отрицательно определенной и не является знаконеопределенной, то $x^{0}$ может быть точкой локального экстремума, а может и не быть.
 </block>
-<block id = 'P13.1.4'>
+<block id = 'PT13.1.2'>
 Доказательство. Поскольку $x^{0}$ - стационарная точка функции $f$, то $d f\left(x^{0}\right)=0$, следовательно,
 
 $$
@@ -239,8 +239,9 @@ $$
 
 Для функции $f(x)=x^{3}: f^{\prime \prime}(0)=0$, а точка $x_{0}=0$ не является точкой экстремума.
 </block>
+<block id = 'PR13.1.1'>
 Задача 1. Пусть функция $f: \mathbb{R}^{2} \rightarrow \mathbb{R}$ дважды непрерывно дифференцируема и $\operatorname{det} f_{x x}^{\prime \prime}\left(x^{0}\right)<0$. Может ли функция $f$ достигать локальный безусловный экстремум в точке $x^{0}$ ?
-
+</block>
 ## § 2. Условный экстремум
 
 Пусть в окрестности точки $x^{0} \in \mathbb{R}^{n}$ заданы скалярная функция $f(x)$ и вектор-функция $g(x)=\left(\begin{array}{c}g_{1}(x) \\ \cdots \\ g_{m}(x)\end{array}\right)$. Рассмотрим задачу отыскания экстремума функции $f(x)$ на множестве $X \subset \mathbb{R}^{n}$, заданном системой уравнений $g(x)=\overline{0}$ :
