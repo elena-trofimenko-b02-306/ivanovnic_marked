@@ -2190,216 +2190,203 @@ $\operatorname{rot} \operatorname{grad} \varphi=\overline{0}$.
 Здесь мы опять воспользовались тем, что компоненты вектора $\nabla$ можно переставлять местами, если эти компоненты применяются к дважды непрерывно дифференцируемой функции, в силу чего с оператором $\nabla$ можно работать как с обычным вектором и, в частности, $[\nabla \times \nabla]=\overline{0}$.
 5) div $\operatorname{grad} \varphi=(\nabla, \nabla) \varphi=\left(\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right) \varphi$.
 </block>
+<block id='C15.05'>
 ## § 5. Формула Остроградского-Гаусса
+</block>
 
-Определение. Множество называется элементарным, если оно элементарно относительно каждой координатной оси (см. определение в § 3 главы 14).
+<block id='D15.05.01'>
+**Определение.** Множество называется элементарным, если оно элементарно относительно каждой координатной оси (см. определение в § 3 главы 14).
+</block>
 
-Теорема 1. Пусть векторное поле $\vec{a}(x, y, z)=\left(\begin{array}{c}P(x, y, z) \\ Q(x, y, z) \\ R(x, y, z)\end{array}\right)$ непрерывно дифференцируемо в замыкании элементарной области $G \subset \mathbb{R}_{x y z}^{3}$, граница которой $\partial G^{+}$является кусочно-гладкой поверхностью, ориентированной полем внешних нормалей. Тогда справедлива формула Остроградского-Гаусса:
+<block id='T15.05.01'>
+**Теорема 1.** Пусть векторное поле $\vec{a}(x, y, z)=\left(\begin{array}{c}P(x, y, z) \\ Q(x, y, z) \\ R(x, y, z)\end{array}\right)$ непрерывно дифференцируемо в замыкании элементарной области $G \subset \mathbb{R}_{x y z}^{3}$, граница которой $\partial G^{+}$является кусочно-гладкой поверхностью, ориентированной полем внешних нормалей. Тогда справедлива формула Остроградского-Гаусса:
 
-$$
 \begin{equation*}
 \iiint_{G} \operatorname{div} \vec{a}(x, y, z) d x d y d z=\iint_{\partial G^{+}}(\vec{a}(x, y, z), \overrightarrow{d S}) \tag{1}
 \end{equation*}
-$$
+</block>
 
-Доказательство. Формулу Остроградского-Гаусса, опуская аргументы, можно переписать в виде
+<block id='PT15.05.01'>
+**Доказательство.** Формулу Остроградского-Гаусса, опуская аргументы, можно переписать в виде
 
-$$
 \begin{align*}
 & \iiint_{G}\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right) d x d y d z= \\
 & =\iint_{\partial G^{+}} P d y d z+Q d z d x+R d x d y \tag{2}
 \end{align*}
-$$
 
 Докажем равенство
 
-$$
 \begin{equation*}
 \iiint_{G} \frac{\partial R}{\partial z}(x, y, z) d x d y d z=\iint_{\partial G^{+}} R(x, y, z) d x d y \tag{3}
 \end{equation*}
-$$
 
 В силу элементарности области $G$ относительно оси $z$ существуют измеримое множество $E \subset \mathbb{R}_{x y}^{2}$ и функции $\varphi(x, y), \psi(x, y)$, непрерывные на замыкании множества $E$ и такие, что $\varphi(x, y)<\psi(x, y)$ $\forall(x, y) \in E$ и
 
-$$
 G=\{(x, y, z):(x, y) \in E, \varphi(x, y)<z<\psi(x, y)\}
-$$
 
 Поэтому поверхность «криволинейного цилиндра» $G$ состоит из трех частей: «верхнего основания»
 $S_{1}=\{(x, y, \psi(x, y)):(x, y) \in \bar{E}\}$, «нижнего основания»
 $S_{2}=\{(x, y, \varphi(x, y)):(x, y) \in \bar{E}\}$
 и «боковой поверхности»
 
-$$
 \begin{gathered}
 S_{3}=\{(x, y, z):(x, y) \in \partial E \\
 \varphi(x, y) \leq z \leq \psi(x, y)\}
 \end{gathered}
-$$
 
 Поскольку вектор нормали
-![](https://cdn.mathpix.com/cropped/2025_07_20_130114880eb2e38b8671g-074.jpg?height=764&width=603&top_left_y=1073&top_left_x=746)
 $\vec{n}(x, y, z)=\left(\begin{array}{l}n_{x}(x, y, z) \\ n_{y}(x, y, z) \\ n_{z}(x, y, z)\end{array}\right) \quad$ к
 «боковой поверхности» $S_{3}$ параллелен плоскости $x y$, то $n_{z}(x, y, z)=$ $=0$ при $(x, y, z) \in S_{3}$, следовательно, сводя интеграл второго рода к интегралу первого рода, получаем
 
-$$
 \iint_{S_{3}} R(x, y, z) d x d y=\iint_{S_{3}} R(x, y, z) n_{z}(x, y, z) d S=0 .
-$$
 
 Пользуясь определением 2 для поверхностных интегралов второго рода по верхней стороне поверхности $S_{1}$ и нижней стороне поверхности $S_{2}$, получаем
 
-$$
 \begin{aligned}
 \iint_{S_{1}} R(x, y, z) d x d y & =\iint_{E} R(x, y, \psi(x, y)) d x d y \\
 \iint_{S_{2}} R(x, y, z) d x d y & =-\iint_{E} R(x, y, \varphi(x, y)) d x d y
 \end{aligned}
-$$
 
 Следовательно,
 
-$$
 \begin{aligned}
 & \iint_{\partial G^{+}} R(x, y, z) d x d y=\iint_{S_{1}} R(x, y, z) d x d y+ \\
 & +\iint_{S_{2}} R(x, y, z) d x d y+\iint_{S_{3}} R(x, y, z) d x d y= \\
 = & \iint_{E}(R(x, y, \psi(x, y))-R(x, y, \varphi(x, y))) d x d y
 \end{aligned}
-$$
 
 Пользуясь формулой Ньютона-Лейбница, получаем
 
-$$
 \iint_{\partial G^{+}} R(x, y, z) d x d y=\iint_{E} d x d y \int_{\varphi(x, y)}^{\psi(x, y)} \frac{\partial R}{\partial z}(x, y, z) d z
-$$
 
 Отсюда и из теоремы о сведении кратного интеграла к повторному следует формула (3).
 
 Аналогично, пользуясь элементарностью области $G$ относительно осей $x$ и $y$, можно получить равенства
 
-$$
 \begin{align*}
 & \iiint_{G} \frac{\partial P}{\partial x}(x, y, z) d x d y d z=\iint_{\partial G^{+}} P(x, y, z) d y d z  \tag{4}\\
 & \iiint_{G} \frac{\partial Q}{\partial y}(x, y, z) d x d y d z=\iint_{\partial G^{+}} Q(x, y, z) d z d x \tag{5}
 \end{align*}
-$$
 
 Складывая равенства (3) - (5), получаем формулу Остроградского-Гаусса (2).
+</block>
 
-## Теорема 2. Пусть
+<block id='T15.05.02'>
+**Теорема 2.** Пусть
 
 1) область $G$ можно представить в виде объединения конечного числа непересекающихся элементарных областей $G_{i}(i=1, \ldots, I)$ и кусочно-гладких поверхностей $S_{j}(j=1, \ldots, J)$, лежащих на границах областей $G_{i}$;
 2) граница $\partial G^{+}$области $G$ является кусочно-гладкой поверхностью, ориентированной полем внешних нормалей;
 3) векторное поле $\vec{a}(x, y, z) \in \mathbb{R}^{3}$ непрерывно дифференцируемо в замыкании области $G$.
 
 Тогда справедлива формула Остроградского-Гаусса (1).
-Доказательство. В силу теоремы 1 для каждой элементарной области $G_{i}$ справедлива формула Остроградского-Гаусса
+</block>
 
-$$
+<block id='PT15.05.02'>
+**Доказательство.** В силу теоремы 1 для каждой элементарной области $G_{i}$ справедлива формула Остроградского-Гаусса
+
 \iiint_{G_{i}} \operatorname{div} \vec{a}(x, y, z) d x d y d z=\iint_{\partial G_{i}^{+}}(\vec{a}(x, y, z), \overrightarrow{d S}), \quad i \in\{1, \ldots, I\}
-$$
 
 Поскольку элементарные области $G_{i}$ измеримы, то $\mu\left(\partial G_{i}\right)=$ $=0$. Отсюда и из условия $G \backslash \bigcup_{i=1}^{I} G_{i} \subset \bigcup_{i=1}^{I} \partial G_{i}$ следует, что $\mu\left(G \backslash \bigcup_{i=1}^{I} G_{i}\right)=0$ и в силу аддитивности кратного интеграла
 
-$$
 \begin{gather*}
 \iiint_{G} \operatorname{div} \vec{a}(x, y, z) d x d y d z= \\
 =\sum_{i=1}^{I} \iiint_{G_{i}} \operatorname{div} \vec{a}(x, y, z) d x d y d z=\sum_{i=1}^{I} \iint_{\partial G_{i}^{+}}(\vec{a}(x, y, z), \overrightarrow{d S}) \tag{6}
 \end{gather*}
-$$
 
 Через $S_{i \ell}^{+}$обозначим общую границу соседних элементарных областей $G_{i}$ и $G_{\ell}$, ориентированную полем нормалей, внешних по отношению к области $G_{i}$. Тогда ориентации поверхностей $S_{i \ell}^{+}$и $S_{\ell i}^{+}$взаимно противоположны и, следовательно,
 
-$$
 \iint_{\partial S_{i \ell}^{+}}(\vec{a}(x, y, z), \overrightarrow{d S})=-\iint_{\partial S_{\ell i}^{+}}(\vec{a}(x, y, z), \overrightarrow{d S})
-$$
 
 Поэтому при суммировании интегралов по поверхностям $\partial G^{+}{ }_{i}$ интегралы по общим границам соседних областей взаимно уничтожаются и остается интеграл по границе области $G$. Таким образом, из формулы (6) следует формула Остроградского-Гаусса для области $G$.
+</block>
 
+<block id='TX15.05.01'>
 Отметим без доказательства, что формула ОстроградскогоГаусса справедлива и для области $G$, которую нельзя представить как объединение конечного числа элементарных областей и частей их границ, т. е. вместо условия (1) теоремы 2 достаточно требовать измеримость области $G$.
+</block>
 
-Теорема 3. (Геометрическое определение дивергенции.) Пусть векторное поле $\vec{a}(\vec{r}) \in \mathbb{R}^{3}$ непрерывно дифференцируемо в области $\Omega \subset \mathbb{R}_{x y z}^{3}$. Пусть $\vec{r}_{0} \in \Omega, \quad S_{\delta}^{+}$- сфера радиуса $\delta$ с центром в точке $\vec{r}_{0}$, ориентированная полем внешних нормалей, а $V_{\delta}=\mu\left(U_{\delta}\left(\vec{r}_{0}\right)\right)=\frac{4}{3} \pi \delta^{3}$ - объем шара $U_{\delta}\left(\vec{r}_{0}\right)$. Тогда
+<block id='T15.05.03'>
+**Теорема 3.** (Геометрическое определение дивергенции.) Пусть векторное поле $\vec{a}(\vec{r}) \in \mathbb{R}^{3}$ непрерывно дифференцируемо в области $\Omega \subset \mathbb{R}_{x y z}^{3}$. Пусть $\vec{r}_{0} \in \Omega, \quad S_{\delta}^{+}$- сфера радиуса $\delta$ с центром в точке $\vec{r}_{0}$, ориентированная полем внешних нормалей, а $V_{\delta}=\mu\left(U_{\delta}\left(\vec{r}_{0}\right)\right)=\frac{4}{3} \pi \delta^{3}$ - объем шара $U_{\delta}\left(\vec{r}_{0}\right)$. Тогда
 
-$$
 \operatorname{div} \vec{a}\left(\vec{r}_{0}\right)=\lim _{\delta \rightarrow+0} \frac{1}{V_{\delta}} \iint_{S_{\delta}^{+}}(\vec{a}(\vec{r}), \overrightarrow{d S})
-$$
+</block>
 
-Доказательство. Из непрерывной дифференцируемости поля $\vec{a}(\vec{r})$ следует непрерывность функции $\operatorname{div} \vec{a}(\vec{r})$, поэтому
+<block id='PT15.05.03'>
+**Доказательство.** Из непрерывной дифференцируемости поля $\vec{a}(\vec{r})$ следует непрерывность функции $\operatorname{div} \vec{a}(\vec{r})$, поэтому
 
-$$
 \varepsilon(\delta)=\sup _{\vec{r} \in U_{\delta}\left(\vec{r}_{0}\right)}\left|\operatorname{div} a(\vec{r})-\operatorname{div} a\left(\vec{r}_{0}\right)\right| \rightarrow 0 \quad \text { при } \quad \delta \rightarrow+0 .
-$$
 
 Следовательно,
 
-$$
 \left|\iiint_{U_{\delta}\left(\vec{r}_{0}\right)} \operatorname{div} \vec{a}(\vec{r}) d x d y d z-V_{\delta} \operatorname{div} \vec{a}\left(\vec{r}_{0}\right)\right|=
-$$
 
-$$
 =\left|\iiint_{U_{\delta}\left(\vec{r}_{0}\right)}\left(\operatorname{div} \vec{a}(\vec{r})-\operatorname{div} \vec{a}\left(\vec{r}_{0}\right)\right) d x d y d z\right| \leq \iiint_{U_{\delta}\left(\vec{r}_{0}\right)} \varepsilon(\delta) d x d y d z=V_{\delta} \varepsilon(\delta)
-$$
 
 Из теоремы Остроградского-Гаусса получаем, что
 
-$$
 \iiint_{U_{\delta}} \operatorname{div} \vec{a}(\vec{r}) d x d y d z=\iint_{S_{\delta}^{+}}(\vec{a}(\vec{r}), \overrightarrow{d S})
-$$
 
 Следовательно,
 
-$$
 \left|\frac{1}{V_{\delta}} \iint_{S_{\delta}^{+}}(\vec{a}(\vec{r}), \overrightarrow{d S})-\operatorname{div} \vec{a}\left(\vec{r}_{0}\right)\right| \leq \varepsilon(\delta) \rightarrow 0 \quad \text { при } \quad \delta \rightarrow+0
-$$
+</block>
 
-Замечание. Поскольку поток $\iint_{S_{\delta}^{+}}(\vec{a}(\vec{r}), \overrightarrow{d S})$ не зависит от системы координат, то в силу теоремы 3 дивергенция векторного поля не зависит от системы координат.
+<block id='R15.05.01'>
+**Замечание.** Поскольку поток $\iint_{S_{\delta}^{+}}(\vec{a}(\vec{r}), \overrightarrow{d S})$ не зависит от системы координат, то в силу теоремы 3 дивергенция векторного поля не зависит от системы координат.
+</block>
 
-Определение. Будем говорить, что поверхность $S$ ограничива$e m$ область $G \subset \mathbb{R}^{3}$, если
+<block id='D15.05.02'>
+**Определение.** Будем говорить, что поверхность $S$ ограничива$e m$ область $G \subset \mathbb{R}^{3}$, если
 
 1) $S=\partial G$ и
 2) $G$ - ограниченное множество.
+</block>
 
-Определение. Поверхность называется замкнутой, если она ограничивает некоторую область.
+<block id='D15.05.03'>
+**Определение.** Поверхность называется замкнутой, если она ограничивает некоторую область.
+</block>
 
-Определение. Непрерывное векторное поле $\vec{a}(x, y, z) \in \mathbb{R}^{3}$ называется соленоидальным в области $\Omega$, если поток поля $\vec{a}$ через любую замкнутую кусочно-гладкую поверхность $S$, лежащую в области $\Omega$, равен нулю:
+<block id='D15.05.04'>
+**Определение.** Непрерывное векторное поле $\vec{a}(x, y, z) \in \mathbb{R}^{3}$ называется соленоидальным в области $\Omega$, если поток поля $\vec{a}$ через любую замкнутую кусочно-гладкую поверхность $S$, лежащую в области $\Omega$, равен нулю:
 
-$$
 \iint_{S}(\vec{a}(x, y, z), \overrightarrow{d S})=0 \quad \forall \quad \text { замкн., кус.-глад. } \quad S \subset \Omega .
-$$
+</block>
 
-Определение. Область $\Omega \subset \mathbb{R}^{3}$ называется объемно односвязной, если для любой замкнутой поверхности $S \subset \Omega$ область $G$, ограниченная поверхностью $S$, содержится в $\Omega$.
+<block id='D15.05.05'>
+**Определение.** Область $\Omega \subset \mathbb{R}^{3}$ называется объемно односвязной, если для любой замкнутой поверхности $S \subset \Omega$ область $G$, ограниченная поверхностью $S$, содержится в $\Omega$.
 
 Образно говоря, объемная односвязность области $\Omega$ означает, что область $\Omega$ не имеет «внутренних полостей».
+</block>
 
-Теорема 4. Пусть векторное поле $\vec{a}(x, y, z) \in \mathbb{R}^{3}$ непрерывно дифференцируемо в области $\Omega$. Тогда условие
+<block id='T15.05.04'>
+**Теорема 4.** Пусть векторное поле $\vec{a}(x, y, z) \in \mathbb{R}^{3}$ непрерывно дифференцируемо в области $\Omega$. Тогда условие
 
-$$
 \begin{equation*}
 \operatorname{div} \vec{a}(x, y, z)=0 \quad \forall(x, y, z) \in \Omega \tag{7}
 \end{equation*}
-$$
 
 является необходимым, а в случае объемной односвязности области $\Omega$ - и достаточным условием соленоидальности поля $\vec{a}$.
+</block>
 
-Доказательство. 1) Необходимость условия (7) для соленоидальности поля $\vec{a}$ следует непосредственно из теоремы 3 .
+<block id='PT15.05.04'>
+**Доказательство.** 1) Необходимость условия (7) для соленоидальности поля $\vec{a}$ следует непосредственно из теоремы 3 .
 2) Пусть выполнено условие (7) и область $\Omega$ объемно односвязна. Пусть замкнутая кусочно-гладкая поверхность $S$ ограничивает область $G$. Тогда в силу объемной односвязности области $\Omega \quad G \subset$ $\subset \Omega$, поэтому $\operatorname{div} \vec{a}(x, y, z)=0 \quad \forall(x, y, z) \in G$. Отсюда и из формулы Остроградского-Гаусса следует, что поток поля $\vec{a}$ через поверхность $S$ равен нулю.
+</block>
 
-Замечание. Из условия (7) для объемно неодносвязной области $\Omega$ не следует соленоидальность поля $\vec{a}$. Пусть, например, $\vec{a}(\vec{r})=\frac{\vec{r}}{|\vec{r}|^{3}}$ - электрическое поле точечного заряда, $\Omega=\left\{\vec{r} \in \mathbb{R}^{3}: 1<|\vec{r}|<3\right\}$, $S=\left\{\vec{r} \in \mathbb{R}^{3}:|\vec{r}|=2\right\}$. Тогда
+<block id='R15.05.02'>
+**Замечание.** Из условие (7) для объемно неодносвязной области $\Omega$ не следует соленоидальность поля $\vec{a}$. Пусть, например, $\vec{a}(\vec{r})=\frac{\vec{r}}{|\vec{r}|^{3}}$ - электрическое поле точечного заряда, $\Omega=\left\{\vec{r} \in \mathbb{R}^{3}: 1<|\vec{r}|<3\right\}$, $S=\left\{\vec{r} \in \mathbb{R}^{3}:|\vec{r}|=2\right\}$. Тогда
 
-$$
 \begin{aligned}
 & \operatorname{div} \vec{a}=\left(\nabla, \frac{\vec{r}}{|\vec{r}|^{3}}\right)=\frac{1}{|\vec{r}|^{3}}(\nabla, \vec{r})+\left(\vec{r}, \nabla \frac{1}{|\vec{r}|^{3}}\right)= \\
 & =\frac{3}{|\vec{r}|^{3}}-\left(\vec{r}, \frac{3 \nabla|\vec{r}|}{|\vec{r}|^{4}}\right)=\frac{3}{|\vec{r}|^{3}}-3\left(\vec{r}, \frac{\vec{r}}{|\vec{r}|^{5}}\right)=0
 \end{aligned}
-$$
 
 т. е. условие (7) выполнено. Однако
 
-$$
 \begin{aligned}
 \iint_{S}(\vec{a}, \overrightarrow{d S}) & =\iint_{S}(\vec{a}, \vec{n}) d S=\iint_{S}\left(\frac{\vec{r}}{|\vec{r}|^{3}}, \frac{\vec{r}}{|\vec{r}|}\right) d S= \\
 & =\iint_{S} \frac{d S}{|\vec{r}|^{2}}=\frac{2^{2} 4 \pi}{2^{2}}=4 \pi \neq 0
 \end{aligned}
-$$
-
+</block>
 ## Mastermatik
 <block id='C15.06'>
 ## § 6. Формула Стокса
