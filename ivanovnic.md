@@ -1855,138 +1855,136 @@ v^{\prime}\left(t_{0}\right) & N_{v}
 **Определение.** Кусочно-гладкая поверхность называется ориентируемой, если ее куски $S_{i}$ можно ориентировать согласованно, т.е. так, что положительные ориентации общего края любых двух соседних поверхностей $S_{i}$ и $S_{j}$ взаимно противоположны.
 </block>
 
+<block id='C15.02'>
 ## § 2. Поверхностный интеграл первого рода
+</block>
 
+<block id='TX15.02.01'>
 Пусть задана простая гладкая поверхность $S=\vec{r}(\bar{G})$, разбиение $\mathrm{T}=\left\{G_{i}\right\}_{i=1}^{I}$ области $G \subset \mathbb{R}_{u v}^{2}$ и выборка $\xi_{\mathrm{T}}=\left\{\left(u_{i}, v_{i}\right)\right\}_{i=1}^{I}$, где $\left(u_{i}, v_{i}\right) \in G_{i}$.
 
 Через $\vec{r}_{i}(u, v)$ обозначим линейное приближение отображения $\vec{r}(u, v)$ в окрестности точки $\left(u_{i}, v_{i}\right)$ :
 
-$$
 \vec{r}_{i}(u, v)=\vec{r}\left(u_{i}, v_{i}\right)+\vec{r}_{u}^{\prime}\left(u_{i}, v_{i}\right)\left(u-u_{i}\right)+\vec{r}_{v}^{\prime}\left(u_{i}, v_{i}\right)\left(v-v_{i}\right) .
-$$
 
 Через $S_{i}$ обозначим образ множества $G_{i}$ при линейном отображении $\vec{r}_{i}(u, v): \quad S_{i}=\vec{r}_{i}\left(G_{i}\right)$. Заметим, что множество $S_{i}$ лежит в касательной плоскости к поверхности $S$ в точке $\left(u_{i}, v_{i}\right)$. Через $\mu\left(S_{i}\right)$ обозначим площадь (меру Жордана на плоскости) множества $S_{i}$, а через $\mu\left(G_{i}\right)$ - площадь множества $G_{i} \subset \mathbb{R}_{u v}^{2}$.
 
 Как известно из аналитической геометрии, отношение площадей образа и прообраза при линейном отображении равно длине векторного произведения образов базисных векторов ортонормированного базиса. При линейном отображении $\vec{r}_{i}(u, v)$ базисные векторы $\binom{1}{0}$ и $\binom{0}{1}$ переходят соответственно в векторы $\vec{r}^{\prime}{ }_{u}\left(u_{i}, v_{i}\right)$ и $\vec{r}^{\prime}{ }_{v}\left(u_{i}, v_{i}\right)$, поэтому
 
-$$
 \frac{\mu\left(S_{i}\right)}{\mu\left(G_{i}\right)}=\left|\left[\vec{r}_{u}^{\prime}\left(u_{i}, v_{i}\right) \times \vec{r}_{v}^{\prime}\left(u_{i}, v_{i}\right)\right]\right| .
-$$
 
 Объединением множеств $S_{i}(i=1, \ldots, I)$ является «чешуйчатое» множество $S_{\mathrm{T}}$, которое при малой мелкости разбиения Т близко к
 
 поверхности $S$. Предел площадей «чешуйчатых» множеств $S_{\mathrm{T}}$ при $\ell(\mathrm{T}) \rightarrow 0$ называется площадью поверхности $S$.
+</block>
 
-Определение. Будем говорить, что простая гладкая поверхность $S=\vec{r}(\bar{G})$ имеет площадь $\sigma$, если
+<block id='D15.02.01'>
+**Определение.** Будем говорить, что простая гладкая поверхность $S=\vec{r}(\bar{G})$ имеет площадь $\sigma$, если
 
-$$
 \sum_{i=1}^{I} \mu\left(S_{i}\right) \longrightarrow \sigma \quad \text { при } \quad \ell(\mathrm{T}) \rightarrow 0 .
-$$
+</block>
 
-Теорема 1. Площадь простой гладкой поверхности $S=\vec{r}(\bar{G})$ существует и равна
+<block id='T15.02.01'>
+**Теорема 1.** Площадь простой гладкой поверхности $S=\vec{r}(\bar{G})$ существует и равна
 
-$$
 \begin{equation*}
 \iint_{G}\left|\left[\vec{r}_{u}^{\prime}(u, v) \times \vec{r}_{v}^{\prime}(u, v)\right]\right| d u d v \tag{1}
 \end{equation*}
-$$
+</block>
 
-Доказательство. Через $\sigma\left(g ; \mathrm{T} ; \xi_{\mathrm{T}}\right)$ обозначим сумму Римана функции $g(u, v)=\left|\left[\vec{r}_{u}^{\prime}(u, v) \times \vec{r}_{v}^{\prime}(u, v)\right]\right|$ для разбиения $\mathrm{T}=\left\{G_{i}\right\}_{i=1}^{I}$ и выборки $\xi_{\mathrm{T}}=\left\{\left(u_{i}, v_{i}\right)\right\}_{i=1}^{I}$ :
+<block id='PT15.02.01'>
+**Доказательство.** Через $\sigma\left(g ; \mathrm{T} ; \xi_{\mathrm{T}}\right)$ обозначим сумму Римана функции $g(u, v)=\left|\left[\vec{r}_{u}^{\prime}(u, v) \times \vec{r}_{v}^{\prime}(u, v)\right]\right|$ для разбиения $\mathrm{T}=\left\{G_{i}\right\}_{i=1}^{I}$ и выборки $\xi_{\mathrm{T}}=\left\{\left(u_{i}, v_{i}\right)\right\}_{i=1}^{I}$ :
 
-$$
 \begin{equation*}
 \sigma\left(g ; \mathrm{T} ; \xi_{\mathrm{T}}\right)=\sum_{i=1}^{I}\left|\left[\vec{r}_{u}^{\prime}\left(u_{i}, v_{i}\right) \times \vec{r}_{v}^{\prime}\left(u_{i}, v_{i}\right)\right]\right| \mu\left(G_{i}\right)=\sum_{i=1}^{I} \mu\left(S_{i}\right) . \tag{2}
 \end{equation*}
-$$
 
 Поскольку функция $g(u, v)$ непрерывна на измеримом компакте $\bar{G}$, то эта функция интегрируема на $\bar{G}$, а значит, и на $G$. Поэтому при $\ell(\mathrm{T}) \rightarrow 0$
 
-$$
 \begin{equation*}
 \sigma\left(g ; \mathrm{T} ; \xi_{\mathrm{T}}\right) \longrightarrow \iint_{G}\left|\left[\vec{r}_{u}^{\prime}(u, v) \times \vec{r}_{v}^{\prime}(u, v)\right]\right| d u d v \tag{3}
 \end{equation*}
-$$
 
 Из условий (2), (3) следует требуемое утверждение.
-Определение. Пусть $S=\vec{r}(\bar{G})$ - простая гладкая поверхность. Тогда квадратичная форма
+</block>
 
-$$
+<block id='D15.02.02'>
+**Определение.** Пусть $S=\vec{r}(\bar{G})$ - простая гладкая поверхность. Тогда квадратичная форма
+
 \begin{aligned}
 & K(d u, d v)=\left|d \vec{r}\left(u_{0}, v_{0}\right)\right|^{2}=\left|\vec{r}_{u}^{\prime} d u+\vec{r}_{v}^{\prime} d v\right|^{2}= \\
 & \quad=\left|\vec{r}_{u}^{\prime}\right|^{2} d u^{2}+2\left(\vec{r}_{u}^{\prime}, \vec{r}_{v}^{\prime}\right) d u d v+\left|\vec{r}_{v}^{\prime}\right|^{2} d v^{2}
 \end{aligned}
-$$
 
 (где частные производные $\vec{r}_{u}^{\prime}, \vec{r}_{v}^{\prime}$ вычислены в точке $\left(u_{0}, v_{0}\right)$ ) называется первой квадратичной формой поверхности $S$ в точке $\overrightarrow{r_{0}}=$ $=\vec{r}\left(u_{0}, v_{0}\right)$.
 
 Заметим, что длину векторного произведения $\left[\vec{r}^{\prime}{ }_{u} \times \vec{r}^{\prime}{ }_{v}\right]$ удобно вычислять через коэффициенты первой квадратичной формы поверхности:
 
-$$
 \left|\left[\vec{r}_{u}^{\prime} \times \vec{r}_{v}^{\prime}\right]\right|=\sqrt{\left|\vec{r}_{u}^{\prime}\right|^{2} \cdot\left|\vec{r}_{v}^{\prime}\right|^{2}-\left(\vec{r}_{u}^{\prime}, \vec{r}_{v}^{\prime}\right)^{2}} .
-$$
 
 Площадь поверхности $S$ можно трактовать как массу этой поверхности с поверхностной плотностью, равной единице. Обобщая формулу (1) для площади поверхности $S$, дадим определение поверхностного интеграла первого рода от функции $f(x, y, z)$, физический смысл которого состоит в том, что он равен массе поверхности $S$ с поверхностной плотностью $f$.
+</block>
 
-Определение. Пусть функция $f(\vec{r})$ непрерывна на простой гладкой поверхности $S=\vec{r}(\bar{G})$. Интегралом первого рода $\iint_{S} f(\vec{r}) d S$ от функции $f(\vec{r})$ по поверхности $S$ называется кратный интеграл
+<block id='D15.02.03'>
+**Определение.** Пусть функция $f(\vec{r})$ непрерывна на простой гладкой поверхности $S=\vec{r}(\bar{G})$. Интегралом первого рода $\iint_{S} f(\vec{r}) d S$ от функции $f(\vec{r})$ по поверхности $S$ называется кратный интеграл
 
-$$
 \iint_{G} f(\vec{r}(u, v))\left|\left[\vec{r}_{u}^{\prime}(u, v) \times \vec{r}_{v}^{\prime}(u, v)\right]\right| d u d v
-$$
+</block>
 
-Лемма 1. Если функция $f(x, y, z)$ непрерывна на поверхности $S=\left\{\vec{r}(x, y)=\left(\begin{array}{c}x \\ y \\ z(x, y)\end{array}\right):(x, y) \in \bar{G}\right\}$, являющейся графиком непрерывно дифференцируемой функции $z(x, y)$, то
+<block id='L15.02.01'>
+**Лемма 1.** Если функция $f(x, y, z)$ непрерывна на поверхности $S=\left\{\vec{r}(x, y)=\left(\begin{array}{c}x \\ y \\ z(x, y)\end{array}\right):(x, y) \in \bar{G}\right\}$, являющейся графиком непрерывно дифференцируемой функции $z(x, y)$, то
 
-$$
 \iint_{S} f(x, y, z) d S=\iint_{G} f(x, y, z(x, y)) \sqrt{1+\left(z_{x}^{\prime}\right)^{2}+\left(z_{y}^{\prime}\right)^{2}} d x d y
-$$
+</block>
 
-Доказательство. Поскольку $\quad \vec{r}_{x}^{\prime}=\left(\begin{array}{c}1 \\ 0 \\ z_{x}^{\prime}\end{array}\right), \quad \vec{r}_{y}^{\prime}=\left(\begin{array}{c}0 \\ 1 \\ z_{y}^{\prime}\end{array}\right), \quad$ то $\left|\vec{r}_{x}^{\prime}\right|^{2}=1+\left(z_{x}^{\prime}\right)^{2}, \quad\left|\vec{r}_{y}^{\prime}\right|^{2}=1+\left(z_{y}^{\prime}\right)^{2}, \quad\left(\vec{r}_{x}^{\prime}, \vec{r}_{y}^{\prime}\right)=z_{x}^{\prime} \cdot z_{y}^{\prime}$. Следовательно, $\left|\left[\vec{r}_{x}^{\prime} \times \vec{r}_{y}^{\prime}\right]\right|=\sqrt{\left|\vec{r}_{x}^{\prime}\right|^{2} \cdot\left|\vec{r}_{y}^{\prime}\right|^{2}-\left(\vec{r}_{x}^{\prime}, \vec{r}_{y}^{\prime}\right)^{2}}=\sqrt{1+\left(z_{x}^{\prime}\right)^{2}+\left(z_{y}^{\prime}\right)^{2}}$, что
+<block id='PL15.02.01'>
+**Доказательство.** Поскольку $\quad \vec{r}_{x}^{\prime}=\left(\begin{array}{c}1 \\ 0 \\ z_{x}^{\prime}\end{array}\right), \quad \vec{r}_{y}^{\prime}=\left(\begin{array}{c}0 \\ 1 \\ z_{y}^{\prime}\end{array}\right), \quad$ то $\left|\vec{r}_{x}^{\prime}\right|^{2}=1+\left(z_{x}^{\prime}\right)^{2}, \quad\left|\vec{r}_{y}^{\prime}\right|^{2}=1+\left(z_{y}^{\prime}\right)^{2}, \quad\left(\vec{r}_{x}^{\prime}, \vec{r}_{y}^{\prime}\right)=z_{x}^{\prime} \cdot z_{y}^{\prime}$. Следовательно, $\left|\left[\vec{r}_{x}^{\prime} \times \vec{r}_{y}^{\prime}\right]\right|=\sqrt{\left|\vec{r}_{x}^{\prime}\right|^{2} \cdot\left|\vec{r}_{y}^{\prime}\right|^{2}-\left(\vec{r}_{x}^{\prime}, \vec{r}_{y}^{\prime}\right)^{2}}=\sqrt{1+\left(z_{x}^{\prime}\right)^{2}+\left(z_{y}^{\prime}\right)^{2}}$, что
 
 по определению поверхностного интеграла первого рода дает требуемое равенство.
+</block>
 
+<block id='TX15.02.02'>
 Из свойства аддитивности кратного интеграла по множеству следует свойство аддитивности интеграла первого рода по простой гладкой поверхности:
 
 если простая гладкая поверхность $S$ является объединением простых гладких поверхностей $S_{i}(i=1, \ldots, I)$, пересекающихся только по краям, а функция $f$ непрерывна на множестве $S$, то
 
-$$
 \iint_{S} f(\vec{r}) d S=\sum_{i=1}^{I} \iint_{S_{i}} f(\vec{r}) d S
-$$
+</block>
 
-Определение. Интеграл первого рода от непрерывной функции $f(\vec{r})$ по кусочно-гладкой поверхности $S$ определяется как сумма интегралов от функции $f$ по простым гладким кускам поверхности $S$.
+<block id='D15.02.04'>
+**Определение.** Интеграл первого рода от непрерывной функции $f(\vec{r})$ по кусочно-гладкой поверхности $S$ определяется как сумма интегралов от функции $f$ по простым гладким кускам поверхности $S$.
 
 Из свойства аддитивности интеграла первого рода по простой гладкой поверхности следует, что
 a) интеграл по кусочно-гладкой поверхности не зависит от способа разбиения этой поверхности на простые гладкие куски и
 б) интеграл первого рода по кусочно-гладкой поверхности также обладает свойством аддитивности.
+</block>
 
-Теорема 2. Поверхностный интеграл первого рода не зависит от параметризации поверхности.
+<block id='T15.02.02'>
+**Теорема 2.** Поверхностный интеграл первого рода не зависит от параметризации поверхности.
+</block>
 
-Доказательство. В силу свойства аддитивности интеграла первого рода достаточно доказать независимость от параметризации интеграла по простой гладкой поверхности $S$. Пусть заданы две параметризации поверхности $S: \quad S=\vec{r}(\bar{G})=\vec{R}(\alpha, \beta)$, причем $\vec{R}(\alpha, \beta)=$ $=\vec{r}(u(\alpha, \beta), v(\alpha, \beta))$, где вектор-функция $W(\alpha, \beta)=\binom{u(\alpha, \beta)}{v(\alpha, \beta)}$ задает непрерывно дифференцируемое взаимно однозначное отображение $W: \bar{\Omega} \rightarrow \bar{G}$ с неравным нулю якобианом. Пусть функция $f(\vec{r})$ непрерывна на множестве $S$. Требуется доказать, что
+<block id='PT15.02.02'>
+**Доказательство.** В силу свойства аддитивности интеграла первого рода достаточно доказать независимость от параметризации интеграла по простой гладкой поверхности $S$. Пусть заданы две параметризации поверхности $S: \quad S=\vec{r}(\bar{G})=\vec{R}(\alpha, \beta)$, причем $\vec{R}(\alpha, \beta)=$ $=\vec{r}(u(\alpha, \beta), v(\alpha, \beta))$, где вектор-функция $W(\alpha, \beta)=\binom{u(\alpha, \beta)}{v(\alpha, \beta)}$ задает непрерывно дифференцируемое взаимно однозначное отображение $W: \bar{\Omega} \rightarrow \bar{G}$ с неравным нулю якобианом. Пусть функция $f(\vec{r})$ непрерывна на множестве $S$. Требуется доказать, что
 
-$$
 \begin{align*}
 & \iint_{G} f(\vec{r}(u, v))\left|\left[\vec{r}_{u}^{\prime}(u, v) \times \vec{r}_{v}^{\prime}(u, v)\right]\right| d u d v=  \tag{4}\\
 = & \iint_{\Omega} f(\vec{R}(\alpha, \beta))\left|\left[\vec{R}_{\alpha}^{\prime}(\alpha, \beta) \times \vec{R}_{\beta}^{\prime}(\alpha, \beta)\right]\right| d \alpha d \beta .
 \end{align*}
-$$
 
 Как было показано при доказательстве леммы 1 § 1,
 
-$$
 \begin{equation*}
 \left[\vec{R}_{\alpha}^{\prime} \times \vec{R}_{\beta}^{\prime}\right]=\left[\vec{r}_{u}^{\prime} \times \vec{r}_{v}^{\prime}\right] J_{W} . \tag{5}
 \end{equation*}
-$$
 
 В силу теоремы о замене переменных в кратном интеграле получаем
 
-$$
 \begin{aligned}
 & \iint_{G} f(\vec{r}(u, v))\left|\left[\vec{r}_{u}^{\prime}(u, v) \times \vec{r}_{v}^{\prime}(u, v)\right]\right| d u d v= \\
 & \quad=\iint_{\Omega} f(\vec{R}(\alpha, \beta))\left|\left[\vec{r}_{u}^{\prime} \times \vec{r}_{v}^{\prime}\right]\right|\left|J_{W}\right| d \alpha d \beta
 \end{aligned}
-$$
 
 откуда и из формулы (5) получаем равенство (4).
-
+</block>
 ## § 3. Поверхностный интеграл второго рода
 
 Для удобства обозначений определим вектор
