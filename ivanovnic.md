@@ -2122,23 +2122,28 @@ $\vec{n}(x, y, z)=\left(\begin{array}{l}n_{x}(x, y, z) \\ n_{y}(x, y, z) \\ n_{z
 
 \iint_{S_{1}^{+}} f(x, y, z) d x d y=\iint_{G} f(x, y, z(x, y)) d x d y=\iint_{S_{2}^{+}} f(x, y, z) d x d y
 </block>
+<block id='C15.04'>
 ## § 4. Оператор Гамильтона
+</block>
 
-Определение. Оператором Гамильтона $\nabla$ (набла) называется векторный оператор, который в правой прямоугольной системе координат $\vec{i}, \vec{j}, \vec{k}$ имеет координаты $\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}$ :
+<block id='D15.04.01'>
+**Определение.** Оператором Гамильтона $\nabla$ (набла) называется векторный оператор, который в правой прямоугольной системе координат $\vec{i}, \vec{j}, \vec{k}$ имеет координаты $\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}$ :
 
-$$
 \nabla=\left(\begin{array}{c}
 \frac{\partial}{\partial x} \\
 \frac{\partial}{\partial y} \\
 \frac{\partial}{\partial z}
 \end{array}\right)=\vec{i} \frac{\partial}{\partial x}+\vec{j} \frac{\partial}{\partial y}+\vec{k} \frac{\partial}{\partial z}
-$$
+</block>
 
+<block id='TX15.04.01'>
 Для того чтобы раскрыть выражение, содержащее оператор $\nabla$, векторные поля, скалярные поля, арифметические операции, а также операции скалярного и векторного произведений, достаточно расписать покоординатно данное выражение, при этом с оператором $\nabla$ можно действовать как с обычным вектором, за тем исключением, что нельзя переставлять местами функции и оператор $\nabla$ или его компоненты. В результате получится скалярное или векторное выражение, каждая координата которого может содержать операторы $\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}$, скалярные функции и арифметические операции. Каждое такое скалярное выражение определяется обычным образом.
 
 Поскольку операторы $\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}$ действуют на функции, стоящие справа от них, и не действуют на функции, стоящие от них слева, то оператор $\nabla$ обладает этим же свойством.
+</block>
 
-Примеры. Пусть задано векторное поле $\vec{a}(x, y, z)=\left(\begin{array}{c}P(x, y, z) \\ Q(x, y, z) \\ R(x, y, z)\end{array}\right)$ и непрерывно дифференцируемые скалярные поля $\varphi(x, y, z)$ и $\psi(x, y, z)$. Тогда
+<block id='E15.04.01'>
+**Примеры.** Пусть задано векторное поле $\vec{a}(x, y, z)=\left(\begin{array}{c}P(x, y, z) \\ Q(x, y, z) \\ R(x, y, z)\end{array}\right)$ и непрерывно дифференцируемые скалярные поля $\varphi(x, y, z)$ и $\psi(x, y, z)$. Тогда
 
 1) $\nabla \varphi=\left(\begin{array}{c}\frac{\partial}{\partial x} \varphi \\ \frac{\partial}{\partial y} \varphi \\ \frac{\partial}{\partial z} \varphi\end{array}\right)=\left(\begin{array}{c}\varphi_{x}^{\prime} \\ \varphi_{y}^{\prime} \\ \varphi_{z}^{\prime}\end{array}\right)=\operatorname{grad} \varphi$.
 2) $(\vec{a}, \nabla) \varphi=P \frac{\partial}{\partial x} \varphi+Q \frac{\partial}{\partial y} \varphi+R \frac{\partial}{\partial z} \varphi=P \varphi_{x}^{\prime}+Q \varphi_{y}^{\prime}+R \varphi_{z}^{\prime}=$ $=(\vec{a}, \operatorname{grad} \varphi)=\frac{\partial \varphi}{\partial \vec{a}}$. Таким образом, выражение ( $\vec{a}, \nabla$ ) является оператором взятия производной по вектору $\vec{a}(x, y, z)$.
@@ -2146,18 +2151,19 @@ $$
 
 То обстоятельство, что дифференциальный оператор $\nabla$ действует на все функции, записанные справа от него (до первого знака + ,
 $-,=)$, бывает неудобным при раскрытии выражений, содержащих оператор $\nabla$. В этом случае договоримся те векторные и скалярные поля, к которым применяется оператор $\nabla$, отмечать стрелкой $\downarrow$. Если в выражении стрелки нет, то, как и раньше, считается, что оператор $\nabla$ действует на все функции, записанные справа от него. Например, $\nabla \varphi \psi=\nabla \stackrel{\downarrow}{\varphi} \psi+\nabla \stackrel{\downarrow}{\psi} \varphi=\psi \nabla \varphi+\varphi \nabla \psi$.
+</block>
 
-Определение. Дивергеничей непрерывно дифференцируемого векторного поля $\vec{a}=\vec{a}(x, y, z)=\left(\begin{array}{l}P(x, y, z) \\ Q(x, y, z) \\ R(x, y, z)\end{array}\right)$ называется скалярное произведение $(\nabla, \vec{a})$ :
+<block id='D15.04.02'>
+**Определение.** Дивергеничей непрерывно дифференцируемого векторного поля $\vec{a}=\vec{a}(x, y, z)=\left(\begin{array}{l}P(x, y, z) \\ Q(x, y, z) \\ R(x, y, z)\end{array}\right)$ называется скалярное произведение $(\nabla, \vec{a})$ :
 
-$$
 \operatorname{div} \vec{a}=(\nabla, \vec{a})=\frac{\partial}{\partial x} P+\frac{\partial}{\partial y} Q+\frac{\partial}{\partial z} R
-$$
+</block>
 
-Определение. Ротором (вихрем) непрерывно дифференцируемого векторного поля $\vec{a}=\vec{a}(x, y, z)=\left(\begin{array}{c}P(x, y, z) \\ Q(x, y, z) \\ R(x, y, z)\end{array}\right)$ называется векторное произведение $[\nabla \times \vec{a}]$.
+<block id='D15.04.03'>
+**Определение.** Ротором (вихрем) непрерывно дифференцируемого векторного поля $\vec{a}=\vec{a}(x, y, z)=\left(\begin{array}{c}P(x, y, z) \\ Q(x, y, z) \\ R(x, y, z)\end{array}\right)$ называется векторное произведение $[\nabla \times \vec{a}]$.
 
 В правой прямоугольной системе координат $\vec{i}, \vec{j}, \vec{k}$ ротор поля $\vec{a}$ выражается по формуле
 
-$$
 \begin{gathered}
 \operatorname{rot} \vec{a}=[\nabla \times \vec{a}]=\operatorname{det}\left(\begin{array}{ccc}
 \vec{i} & \vec{j} & \vec{k} \\
@@ -2166,9 +2172,10 @@ P & Q & R
 \end{array}\right)= \\
 =\vec{i}\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)+\vec{j}\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)+\vec{k}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) .
 \end{gathered}
-$$
+</block>
 
-Рассмотрим примеры раскрытия выражений, содержащих оператор $\nabla$.
+<block id='E15.04.02'>
+**Примеры.** Рассмотрим примеры раскрытия выражений, содержащих оператор $\nabla$.
 
 Пусть заданы непрерывно дифференцируемые векторное поле $\vec{a}=\vec{a}(x, y, z)$ и скалярное поле $\varphi=\varphi(x, y, z)$.
 
@@ -2182,7 +2189,7 @@ $\operatorname{rot} \operatorname{grad} \varphi=\overline{0}$.
 
 Здесь мы опять воспользовались тем, что компоненты вектора $\nabla$ можно переставлять местами, если эти компоненты применяются к дважды непрерывно дифференцируемой функции, в силу чего с оператором $\nabla$ можно работать как с обычным вектором и, в частности, $[\nabla \times \nabla]=\overline{0}$.
 5) div $\operatorname{grad} \varphi=(\nabla, \nabla) \varphi=\left(\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right) \varphi$.
-
+</block>
 ## § 5. Формула Остроградского-Гаусса
 
 Определение. Множество называется элементарным, если оно элементарно относительно каждой координатной оси (см. определение в § 3 главы 14).
