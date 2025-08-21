@@ -7,13 +7,13 @@ from collections import Counter
 # --- Configuration ---
 RAW_MD_PATH = "ivanovnic_b9f0b59.md"
 MARKED_MD_PATH = "ivanovnic.md"
-GRAPH_JSON_PATH = "graph.json"
+GRAPH_JSON_PATH = "graph_remake.json"
 
 # --- Helper Functions ---
 
 def get_ids_from_markdown(content: str) -> list[str]:
-    """Extracts all block IDs from the custom tags in the markdown file."""
-    return re.findall(r"<([A-Z]+\d+(?:\.\d+)*)>", content)
+    """Extracts all block IDs from the <block id='...'> tags in the markdown file."""
+    return re.findall(r"<block id\s*=\s*['\"]([^'\"]+)['\"]>", content, re.IGNORECASE)
 
 def get_ids_from_graph(graph_data: dict) -> list[str]:
     """Extracts all node IDs from the graph JSON."""
@@ -144,7 +144,7 @@ def check_synchronization():
         with open(GRAPH_JSON_PATH, 'r', encoding='utf-8') as f:
             graph_data = json.load(f)
 
-        md_ids = set(re.findall(r"<([A-Z]\d+\.\d+\.\d+)>", md_content))
+        md_ids = set(get_ids_from_markdown(md_content))
         graph_ids = set(get_ids_from_graph(graph_data))
 
         if md_ids == graph_ids:
@@ -152,8 +152,8 @@ def check_synchronization():
             return True
         else:
             print("   \033[91mFAILURE:\033[0m ID sets are out of sync.")
-            print(f"      -> In Markdown but not in JSON: {md_ids - graph_ids}")
-            print(f"      -> In JSON but not in Markdown: {graph_ids - md_ids}")
+            print(f"      -> In Markdown but not in JSON: {sorted(list(md_ids - graph_ids))}")
+            print(f"      -> In JSON but not in Markdown: {sorted(list(graph_ids - md_ids))}")
             return False
     except FileNotFoundError as e:
         print(f"   \033[91mFAILURE:\033[0m File not found: {e.filename}")
