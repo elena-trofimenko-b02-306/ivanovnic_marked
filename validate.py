@@ -202,14 +202,71 @@ def check_accuracy():
     return all_checks_passed
 
 
+def check_graph_integrity():
+    """
+    Checks the internal integrity of the graph file.
+    - Ensures all nodes and edges adhere to the required schema.
+    - Checks for duplicate edges.
+    """
+    print("5. Checking Graph Internal Integrity...")
+    try:
+        with open(GRAPH_JSON_PATH, 'r', encoding='utf-8') as f:
+            graph_data = json.load(f)
+
+        nodes = graph_data.get('nodes', [])
+        edges = graph_data.get('edges', [])
+        
+        all_checks_passed = True
+
+        # 1. Schema validation
+        node_schema_keys = ['id', 'name', 'type']
+        edge_schema_keys = ['source', 'target', 'type']
+        
+        for i, node in enumerate(nodes):
+            if not all(k in node for k in node_schema_keys):
+                print(f"   \033[91mFAILURE:\033[0m Node at index {i} is missing required keys {node_schema_keys}. Node: {node}")
+                all_checks_passed = False
+        
+        for i, edge in enumerate(edges):
+            if not all(k in edge for k in edge_schema_keys):
+                print(f"   \033[91mFAILURE:\033[0m Edge at index {i} is missing required keys {edge_schema_keys}. Edge: {edge}")
+                all_checks_passed = False
+
+        if all_checks_passed:
+            print("   \033[92mSUCCESS:\033[0m All nodes and edges adhere to the schema.")
+
+        # 2. Duplicate edge check
+        edge_tuples = []
+        for edge in edges:
+            edge_tuples.append((edge.get('source'), edge.get('target'), edge.get('type')))
+        
+        if len(edge_tuples) == len(set(edge_tuples)):
+            print("   \033[92mSUCCESS:\033[0m No duplicate edges found.")
+        else:
+            all_checks_passed = False
+            print("   \033[91mFAILURE:\033[0m Duplicate edges found.")
+            duplicates = [item for item, count in Counter(edge_tuples).items() if count > 1]
+            print(f"      -> Duplicates: {duplicates}")
+
+        return all_checks_passed
+
+    except FileNotFoundError:
+        print(f"   \033[91mFAILURE:\033[0m File not found: {GRAPH_JSON_PATH}")
+        return False
+    except json.JSONDecodeError:
+        print(f"   \033[91mFAILURE:\033[0m Invalid JSON in file: {GRAPH_JSON_PATH}")
+        return False
+
+
 def main():
     """Runs all validation checks."""
-    print("\n--- Running Validation Suite ---\n")
+    print("\n--- Running Validation Suite ---\\n")
     results = [
         check_content_preservation(),
         check_format_validity(),
         check_synchronization(),
         check_accuracy(),
+        check_graph_integrity(),
     ]
     print("\n--------------------------------\n")
     if all(results):
@@ -217,5 +274,7 @@ def main():
     else:
         print(f"\033[91mValidation failed. {results.count(False)} check(s) failed.\033[0m")
 
+
 if __name__ == "__main__":
     main()
+
