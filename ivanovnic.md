@@ -2976,7 +2976,7 @@ $\int_{\Gamma}(\vec{a}(\vec{r}), d \vec{r})=\int_{\Gamma} P(x, y) d x+Q(x, y) d 
 </block>
 <block id='C15.08'>
 ## § 8. Дифференциальные формы и общая теорема Стокса
-</block
+</block>
 <block id = 'D15.08.01'>
 Определение. Пусть $G$ - измеримая область в $\mathbb{R}_{\vec{u}}^{m}$, отображение $\vec{r}: \bar{G} \rightarrow \mathbb{R}_{\vec{x}}^{n}$ непрерывно дифференцируемо, и для любой точки $\vec{u} \in$ $\in \bar{G}$ матрица Якоби $\mathcal{D} \vec{r}(\vec{u})$ имеет ранг $m$. Тогда множество $S=\vec{r}(\bar{G})$ называется $m$-мерным гладким многообразием в $\mathbb{R}_{\vec{x}}^{n}$. Краем многообразия $S=\vec{r}(\bar{G})$ называется образ границы области $G: \partial S=\vec{r}(\partial G)$.
 </block>
