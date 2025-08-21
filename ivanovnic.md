@@ -2945,6 +2945,7 @@ $$
 1) $\Gamma=\partial G$;
 2) область $G$ ограничена.
 </block>
+Справедлива следующая теорема Жордана, которую мы примем без доказательства.
 <block id = 'T15.07.03'>
 Теорема 3. (Теорема Жордана.) Для любой простой замкнутой кривой $\Gamma \subset \mathbb{R}^{2}$ существуют ограниченная область $\Omega \subset \mathbb{R}^{2}$ и неограниченная область $\Omega^{\prime} \subset \mathbb{R}^{2}$ такие, что $\partial \Omega=\partial \Omega^{\prime}=\Gamma$ и $\Omega \bigcup \Omega^{\prime} \bigcup \Gamma=$ $=\mathbb{R}^{2}$.
 </block>
