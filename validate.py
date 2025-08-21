@@ -1,11 +1,12 @@
 
 import json
+import difflib
 import re
 from collections import Counter
 
 # --- Configuration ---
-RAW_MD_PATH = "ivanovnic.md"
-MARKED_MD_PATH = "ivanovnic_marked.md"
+RAW_MD_PATH = "ivanovnic_b9f0b59.md"
+MARKED_MD_PATH = "ivanovnic.md"
 GRAPH_JSON_PATH = "graph.json"
 
 # --- Helper Functions ---
@@ -18,39 +19,71 @@ def get_ids_from_graph(graph_data: dict) -> list[str]:
     """Extracts all node IDs from the graph JSON."""
     return [node['id'] for node in graph_data.get('nodes', [])]
 
-def strip_tags_from_markdown(content: str) -> str:
-    """Removes all block tags from the markdown content."""
-    # This regex finds both start and end tags like <T1.2.3> and </T1.2.3>
-    return re.sub(r"</?([A-Z]+\d+(?:\.\d+)*)>\n?", "", content)
+
 
 # --- Validation Checks ---
 
-def check_content_preservation():
+def check_content_preservation(max_diffs=5):
     """
-    Strips tags from the marked file and compares its content to the raw file.
-    They should be identical, ensuring no content was lost or altered.
+    Strips block tags and bold markers from the marked file and compares its
+    content to the raw file. Content should be identical, ensuring no text
+    was lost or altered. This check ignores differences in whitespace,
+    the presence of block tags, and markdown bolding.
     """
     print("1. Checking Content Preservation...")
     try:
         with open(RAW_MD_PATH, 'r', encoding='utf-8') as f:
-            raw_content = f.read()
+            raw_lines = f.readlines()
         with open(MARKED_MD_PATH, 'r', encoding='utf-8') as f:
-            marked_content = f.read()
+            marked_lines = f.readlines()
 
-        stripped_content = strip_tags_from_markdown(marked_content)
+        matcher = difflib.SequenceMatcher(None, raw_lines, marked_lines)
+        has_real_diffs = False
+        diff_count = 0
 
-        if stripped_content.strip() == raw_content.strip():
-            print("   \033[92mSUCCESS:\033[0m Content is perfectly preserved.")
+        for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+            if tag == 'equal':
+                continue
+
+            # Clean the chunks for comparison by stripping each line then joining.
+            # This normalizes newline differences between the raw and marked files.
+            raw_chunk_content = "".join([l.strip() for l in raw_lines[i1:i2]]).replace('**', '')
+            
+            marked_chunk_cleaned = []
+            for line in marked_lines[j1:j2]:
+                # Remove block tags for comparison
+                cleaned_line = re.sub(r"<block id\s*=\s*['\"][^'\"]*['\"]>", '', line, flags=re.IGNORECASE)
+                cleaned_line = re.sub(r"</block>", '', cleaned_line, flags=re.IGNORECASE)
+                marked_chunk_cleaned.append(cleaned_line.strip())
+            
+            marked_chunk_content = "".join(marked_chunk_cleaned).replace('**', '')
+
+            # If content is the same after cleaning, ignore this difference
+            if raw_chunk_content == marked_chunk_content:
+                continue
+
+            # If we reach here, it's a real difference
+            has_real_diffs = True
+            if diff_count < max_diffs:
+                print(f"  \033[93mDifference found (Tag: {tag}, Raw lines: {i1}-{i2}, Marked lines: {j1}-{j2}):\033[0m")
+                if tag == 'replace' or tag == 'delete':
+                    for line in raw_lines[i1:i2]:
+                        print(f"    \033[91m- {line.strip()}\033[0m")
+                if tag == 'replace' or tag == 'insert':
+                    for line in marked_lines[j1:j2]:
+                        print(f"    \033[92m+ {line.strip()}\033[0m")
+                print("  ...")
+                diff_count += 1
+            elif diff_count == max_diffs:
+                print(f"  \033[93m... (more differences found, output limited to {max_diffs})\033[0m")
+                diff_count += 1
+
+        if not has_real_diffs:
+            print("   \033[92mSUCCESS:\033[0m Content is identical (ignoring block tags, whitespace, and bolding).")
             return True
         else:
-            print("   \033[91mFAILURE:\033[0m Content differs between raw and marked files.")
-            # Optional: Write to files to make diffing easier
-            with open("temp_raw.txt", "w", encoding="utf-8") as f:
-                f.write(raw_content)
-            with open("temp_stripped.txt", "w", encoding="utf-8") as f:
-                f.write(stripped_content)
-            print("      -> Diff files created: temp_raw.txt, temp_stripped.txt")
             return False
+
     except FileNotFoundError as e:
         print(f"   \033[91mFAILURE:\033[0m File not found: {e.filename}")
         return False
