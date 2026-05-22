@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Загрузить видео — Сергей Баринов{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="upload-card">
+    <h1 class="upload-title">Загрузить видео</h1>
+    <form method="post" enctype="multipart/form-data" class="upload-form">
+      <div class="form-group">
+        <label for="title">Название *</label>
+        <input type="text" id="title" name="title" required
+               value="{{ request.form.get('title', '') }}"/>
+      </div>
+      <div class="form-group">
+        <label for="description">Описание</label>
+        <textarea id="description" name="description" rows="4">{{ request.form.get('description', '') }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="video">Видеофайл * <span class="hint">(mp4, webm, mov, avi, mkv)</span></label>
+        <input type="file" id="video" name="video" accept="video/*" required/>
+      </div>
+      <div class="form-group">
+        <label for="thumbnail">Превью <span class="hint">(jpg, png, webp — необязательно)</span></label>
+        <input type="file" id="thumbnail" name="thumbnail" accept="image/*"/>
+      </div>
+      <div class="upload-actions">
+        <button type="submit" class="btn btn-primary">Опубликовать</button>
+        <a href="{{ url_for('index') }}" class="btn btn-ghost">Отмена</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

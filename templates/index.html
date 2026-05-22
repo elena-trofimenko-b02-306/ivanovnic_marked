@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Сергей Баринов — видео{% endblock %}
+
+{% block content %}
+<div class="container">
+  <section class="hero">
+    <h1 class="hero-title">Авторские видео</h1>
+    <p class="hero-sub">Творческие работы Сергея Баринова</p>
+  </section>
+
+  {% if videos %}
+    <div class="video-grid">
+      {% for v in videos %}
+        <article class="video-card">
+          <a href="{{ url_for('video', video_id=v.id) }}" class="card-thumb-link">
+            {% if v.thumbnail %}
+              <img src="{{ url_for('static', filename='uploads/' + v.thumbnail) }}"
+                   alt="{{ v.title }}" class="card-thumb"/>
+            {% else %}
+              <div class="card-thumb card-thumb-placeholder">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="20" fill="#1a1a2e" stroke="#c9a96e" stroke-width="1.5"/>
+                  <polygon points="20,16 34,24 20,32" fill="#c9a96e"/>
+                </svg>
+              </div>
+            {% endif %}
+            <div class="card-overlay">
+              <svg class="play-icon" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="23" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+                <polygon points="20,15 35,24 20,33" fill="rgba(255,255,255,0.9)"/>
+              </svg>
+            </div>
+          </a>
+          <div class="card-body">
+            <h2 class="card-title">
+              <a href="{{ url_for('video', video_id=v.id) }}">{{ v.title }}</a>
+            </h2>
+            {% if v.description %}
+              <p class="card-desc">{{ v.description | truncate(100) }}</p>
+            {% endif %}
+            <time class="card-date">{{ v.created_at[:10] }}</time>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <p>Видео пока не добавлены.</p>
+      {% set user = current_user() %}
+      {% if user and user.is_owner %}
+        <a href="{{ url_for('upload') }}" class="btn btn-primary">Загрузить первое видео</a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
