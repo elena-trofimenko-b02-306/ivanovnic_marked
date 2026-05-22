@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}{{ video.title }} — Сергей Баринов{% endblock %}
+
+{% block content %}
+<div class="container video-page">
+  <div class="video-wrapper">
+    <video controls preload="metadata" class="main-video"
+           {% if video.thumbnail %}poster="{{ url_for('static', filename='uploads/' + video.thumbnail) }}"{% endif %}>
+      <source src="{{ url_for('static', filename='uploads/' + video.filename) }}"/>
+      Ваш браузер не поддерживает воспроизведение видео.
+    </video>
+  </div>
+
+  <div class="video-meta">
+    <h1 class="video-title">{{ video.title }}</h1>
+    <time class="video-date">{{ video.created_at[:10] }}</time>
+    {% set user = current_user() %}
+    {% if user and user.is_owner %}
+      <form method="post" action="{{ url_for('delete_video', video_id=video.id) }}"
+            class="delete-form"
+            onsubmit="return confirm('Удалить это видео?')">
+        <button type="submit" class="btn btn-danger">Удалить видео</button>
+      </form>
+    {% endif %}
+  </div>
+
+  {% if video.description %}
+    <div class="video-description">
+      <p>{{ video.description }}</p>
+    </div>
+  {% endif %}
+
+  <section class="comments-section" id="comments">
+    <h2 class="comments-heading">Комментарии <span class="comment-count">({{ comments | length }})</span></h2>
+
+    {% set user = current_user() %}
+    {% if user %}
+      <form class="comment-form" method="post"
+            action="{{ url_for('add_comment', video_id=video.id) }}">
+        <textarea name="body" class="comment-textarea"
+                  placeholder="Напишите комментарий…" rows="4" required></textarea>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
+    {% else %}
+      <div class="comment-auth-prompt">
+        <p>
+          Чтобы оставить комментарий,
+          <a href="{{ url_for('login', next=request.url) }}">войдите</a>
+          или
+          <a href="{{ url_for('register') }}">зарегистрируйтесь</a>.
+        </p>
+      </div>
+    {% endif %}
+
+    {% if comments %}
+      <ol class="comment-list">
+        {% for c in comments %}
+          <li class="comment-item">
+            <div class="comment-header">
+              <span class="comment-author">{{ c.username }}</span>
+              <time class="comment-time">{{ c.created_at[:16].replace("T", " ") }}</time>
+            </div>
+            <p class="comment-body">{{ c.body }}</p>
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <p class="no-comments">Комментариев пока нет. Будьте первым!</p>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

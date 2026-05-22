@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Вход — Сергей Баринов{% endblock %}
+
+{% block content %}
+<div class="container auth-container">
+  <div class="auth-card">
+    <h1 class="auth-title">Вход</h1>
+    <form method="post" class="auth-form">
+      <div class="form-group">
+        <label for="identifier">Логин или e-mail</label>
+        <input type="text" id="identifier" name="identifier"
+               autocomplete="username" required
+               value="{{ request.form.get('identifier', '') }}"/>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password"
+               autocomplete="current-password" required/>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Войти</button>
+    </form>
+    <p class="auth-alt">Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
+  </div>
+</div>
+{% endblock %}
